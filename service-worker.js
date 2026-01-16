@@ -1,4 +1,4 @@
-const cacheName = 'vikram-portfolio-v1';
+const CACHE_NAME = 'vikram-portfolio-v2';
 
 const ASSETS_TO_CACHE = [
   "./",
@@ -9,11 +9,12 @@ const ASSETS_TO_CACHE = [
   "./icon-192.png",
   "./icon-512.png"
 ];
+
 // Install
 self.addEventListener('install', event => {
   console.log('[SW] Installing');
   event.waitUntil(
-    caches.open(cacheName).then(cache => cache.addAll(assetsToCache))
+    caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS_TO_CACHE))
   );
   self.skipWaiting();
 });
@@ -24,7 +25,7 @@ self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys =>
       Promise.all(
-        keys.filter(key => key !== cacheName)
+        keys.filter(key => key !== CACHE_NAME)
             .map(key => caches.delete(key))
       )
     )
