@@ -1,12 +1,14 @@
 const cacheName = 'vikram-portfolio-v1';
 
-const assetsToCache = [
-  './index.html',
-  './manifest.json',
-  './icon-192.png',
-  './icon-512.png'
+const ASSETS_TO_CACHE = [
+  "./",
+  "./index.html",
+  "./style.css",
+  "./script.js",
+  "./manifest.json",
+  "./icon-192.png",
+  "./icon-512.png"
 ];
-
 // Install
 self.addEventListener('install', event => {
   console.log('[SW] Installing');
